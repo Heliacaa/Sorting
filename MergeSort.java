@@ -2,29 +2,35 @@ package Sorting;
 
 public class MergeSort {
     private static <AnyType extends Comparable<? super AnyType>> void merge(AnyType[] a, AnyType[] tmpArray,
-                                                                            int leftPos,int rightPos,int rightEnd) {
-        int leftEnd = rightPos -1;
+                                                                            int leftPos, int rightPos, int rightEnd) {
+        int leftEnd = rightPos - 1;
         int tmpPos = leftPos;
-        int numElements = rightEnd - leftEnd +1;
+        int numElements = rightEnd - leftPos + 1;
 
-        while(leftPos <= leftEnd && rightPos <= rightEnd) {
-            if(a[leftPos].compareTo(a[rightPos]) <= 0) {
+        while (leftPos <= leftEnd && rightPos <= rightEnd) {
+            if (a[leftPos].compareTo(a[rightPos]) <= 0) {
                 tmpArray[tmpPos++] = a[leftPos++];
             } else {
                 tmpArray[tmpPos++] = a[rightPos++];
             }
         }
-        while(leftPos <= leftEnd) {
+
+        // Copy remaining elements from left subarray to temporary array
+        while (leftPos <= leftEnd) {
             tmpArray[tmpPos++] = a[leftPos++];
         }
-        while(rightPos <= rightEnd) {
+
+        // Copy remaining elements from right subarray to temporary array
+        while (rightPos <= rightEnd) {
             tmpArray[tmpPos++] = a[rightPos++];
         }
-        for(int i=0;i<numElements;i++,rightEnd--) {
+
+        // Copy the sorted elements back to the original array
+        for (int i = 0; i < numElements; i++, rightEnd--) {
             a[rightEnd] = tmpArray[rightEnd];
         }
-        //12
     }
+
 
     private static <AnyType extends Comparable<?super AnyType>> void mergeSort(AnyType[] a,AnyType[] tmpArray,
                                                                                int left, int right) {
