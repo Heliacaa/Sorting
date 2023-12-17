@@ -50,8 +50,8 @@ public class MergeSort {
     public static void main(String[] args) {
         Integer[] intArray = {123,342,125,23,66,34,1234543,5,9,27};
         mergeSort(intArray);
-        for(int i=0;i<intArray.length;i++) {
-            System.out.println(intArray[i]);
+        for(Integer a:intArray) {
+            System.out.println(a);
         }
     }
 
