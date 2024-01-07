@@ -47,6 +47,8 @@ public class MergeSort {
         mergeSort(a,tmpArray,0,a.length-1);
     }
 
+
+
     public static void main(String[] args) {
         Integer[] intArray = {123,342,125,23,66,34,1234543,5,9,27};
         mergeSort(intArray);
